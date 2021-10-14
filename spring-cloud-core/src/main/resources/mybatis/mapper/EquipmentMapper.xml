@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orange.springcloud.mapper.EquipmentMapper">
+   <insert id="add" parameterType="Equipment">
+      insert into equipment(equipmentName,equipmentType) values(#{equipmentName},#{equipmentType});
+   </insert>
+
+   <delete id="deleteById">
+      delete from equipment where id=#{id}
+   </delete>
+
+   <update id="updateById" parameterType="Equipment">
+      update equipment set equipmentName=#{equipmentName},equipmentType=#{equipmentType} where id=#{id}
+   </update>
+
+   <select id="queryById" resultType="Equipment">
+      select *from equipment where id=#{id}
+   </select>
+
+   <select id="queryAll" resultType="Equipment">
+      select *from equipment
+   </select>
+</mapper>
